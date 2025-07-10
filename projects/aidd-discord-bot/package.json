@@ -1,0 +1,37 @@
+{
+  "name": "aidd-discord-bot",
+  "version": "1.0.0",
+  "description": "AI-Driven Dev Discord Bot for saving resources with /save-link command",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "echo \"No linting configured\"",
+    "clean": "rm -rf dist"
+  },
+  "keywords": ["discord", "bot", "ai-driven-dev", "resources", "github"],
+  "author": "AI-Driven Dev Team",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/rest": "^22.0.0",
+    "cheerio": "^1.1.0",
+    "discord.js": "^14.21.0",
+    "dotenv": "^17.2.0"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.35",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.12",
+    "jest": "^30.0.4",
+    "nodemon": "^3.1.10",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
