@@ -40,16 +40,6 @@ flowchart TD
     U --> X[🎉 Project Complete]
     V --> X
     W --> X
-
-    style A fill:#e1f5fe
-    style X fill:#e8f5e8
-    style C fill:#fff3e0
-    style E fill:#fff3e0
-    style H fill:#fff3e0
-    style J fill:#fff3e0
-    style M fill:#fff3e0
-    style O fill:#fff3e0
-    style T fill:#fff3e0
 ```
 
 ## 🚀 Orchestration Steps

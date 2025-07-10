@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cost": "ccusage"
+    "cost": "ccusage",
+    "vibe-coding": "claude --dangerously-skip-permissions"
   },
   "repository": {
     "type": "git",
