@@ -2,15 +2,15 @@
 
 ## Introduction/Overview
 
-The AI-Driven Dev Bot is a Discord bot designed to enhance community collaboration by enabling members to easily save and share valuable resources. The initial feature focuses on the `/save-link` command, which allows authorized users to submit resources that will be automatically processed and submitted as pull requests to the AI-Driven Dev resources repository.
+The AI-Driven Dev Bot is a Discord bot designed to enhance community collaboration by enabling members to easily save and share valuable resources. The initial feature focuses on the `/save-link` command, which allows authorized users to submit resources that will be automatically processed and submitted as GitHub Issues to the AI-Driven Dev resources repository.
 
-The bot will scrape web content, extract relevant information, and create well-formatted pull requests that can be reviewed and merged by an AI system, creating a seamless workflow for resource curation.
+The bot will scrape web content, extract relevant information, and create well-formatted GitHub Issues that can be reviewed and processed by the community, creating a seamless workflow for resource curation.
 
 ## Goals
 
 1. Enable community members with "Ambassador" role to easily contribute resources to the AI-Driven Dev repository
 2. Automate the process of extracting metadata from shared links (title, description)
-3. Create properly formatted pull requests on GitHub without manual intervention
+3. Create properly formatted GitHub Issues without manual intervention
 4. Provide clear feedback to users about the success or failure of their submissions
 5. Build a scalable architecture that can accommodate future commands and features
 
@@ -18,7 +18,7 @@ The bot will scrape web content, extract relevant information, and create well-f
 
 1. **As an Ambassador**, I want to save interesting articles and resources I find by using a simple Discord command, so that I can contribute to the community's knowledge base without leaving Discord.
 
-2. **As an Ambassador**, I want to receive immediate feedback about my link submission, so that I know whether the resource was successfully processed and where to find the created pull request.
+2. **As an Ambassador**, I want to receive immediate feedback about my link submission, so that I know whether the resource was successfully processed and where to find the created GitHub Issue.
 
 3. **As a community moderator**, I want only authorized members (Ambassadors) to use the save-link command, so that we maintain quality control over submitted resources.
 
@@ -51,14 +51,15 @@ The bot will scrape web content, extract relevant information, and create well-f
 
 5. **GitHub Integration**
 
-   - The bot must create a new branch in the `ai-driven-dev/ressources` repository
-   - The bot must create a pull request with:
-     - Title: The resource title (custom or extracted)
+   - The bot must create a GitHub Issue in the `ai-driven-dev/ressources` repository
+   - The bot must create an issue with:
+     - Title: "Resource Suggestion: [resource title]"
      - Description: A formatted markdown body containing:
        - Resource title
        - Resource description
        - Original URL
-   - The bot must return the pull request URL to the user
+       - Submitted by: Discord username
+   - The bot must return the issue URL to the user
 
 6. **Error Handling**
 
@@ -72,9 +73,9 @@ The bot will scrape web content, extract relevant information, and create well-f
 
 7. **Response Messages**
 
-   - Success: "✅ Resource saved successfully! Pull request created: [PR URL]"
+   - Success: "✅ Resource saved successfully! GitHub Issue created: [Issue URL]"
    - Error fetching: "❌ Failed to fetch content from the provided URL: [error details]"
-   - Error creating PR: "❌ Failed to create pull request: [error details]"
+   - Error creating issue: "❌ Failed to create GitHub Issue: [error details]"
    - Permission denied: "❌ You need the Ambassador role to use this command"
 
 8. **Docker Deployment**
@@ -83,7 +84,7 @@ The bot will scrape web content, extract relevant information, and create well-f
 
 ## Non-Goals (Out of Scope)
 
-1. The bot will NOT modify or merge pull requests automatically
+1. The bot will NOT modify or close GitHub Issues automatically
 2. The bot will NOT categorize or tag resources automatically
 3. The bot will NOT support bulk link submissions
 4. The bot will NOT validate the quality or relevance of submitted content
@@ -125,19 +126,19 @@ The bot will scrape web content, extract relevant information, and create well-f
 
 1. **Reliability**: 99% uptime for the bot when the server is running
 2. **Response Time**: Commands processed within 5 seconds (excluding external API delays)
-3. **Success Rate**: 90% of valid link submissions result in successful PR creation
+3. **Success Rate**: 90% of valid link submissions result in successful GitHub Issue creation
 4. **User Adoption**: 50% of Ambassadors use the feature within the first month
 5. **Error Clarity**: 100% of errors provide actionable feedback to users
 
 ## Open Questions
 
-1. Should we implement a preview feature that shows what the PR will look like before creating it?
+1. Should we implement a preview feature that shows what the GitHub Issue will look like before creating it?
 2. Do we need to support multiple languages for resource descriptions?
 3. Should we add a cooldown period between submissions for the same user (even with role restrictions)?
-4. What should be the branch naming convention for the PRs?
+4. What labels should be automatically added to the created GitHub Issues?
 5. Should we support other content types beyond web pages (PDFs, videos, etc.) in the future?
-6. Do we need webhook notifications when PRs are merged?
-7. Should the bot add any labels to the created PRs for easier filtering?
+6. Do we need webhook notifications when Issues are closed/resolved?
+7. Should the bot assign the Issues to specific team members for review?
 
 ---
 
